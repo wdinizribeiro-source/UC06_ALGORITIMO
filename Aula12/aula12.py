@@ -23,16 +23,16 @@ leitura_excel = pd.read_excel("Aula12\cadastro.xlsx")
 nova_linha = len(leitura_excel)
 
 
-# leitura_excel.loc[nova_linha,"nome"] = dados["nome"]
-# leitura_excel.loc[nova_linha,"idade"] = dados["idade"]
-# leitura_excel.loc[nova_linha,"altura"] = dados["altura"]
+leitura_excel.loc[nova_linha,"nome"] = dados["nome"]
+leitura_excel.loc[nova_linha,"idade"] = dados["idade"]
+leitura_excel.loc[nova_linha,"altura"] = dados["altura"]
 
 
 
 #print(leitura_excel["nome"])
 
 # apagar linhas de um planilha
-# leitura_excel = leitura_excel.drop(2)
+leitura_excel = leitura_excel.drop(2)
 
 
 leitura_excel.loc[1,"nome"] = dados["nome"]
