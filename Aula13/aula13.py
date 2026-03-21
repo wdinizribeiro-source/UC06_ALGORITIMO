@@ -12,11 +12,21 @@ conexao = pysql.connect(
 # cria cursor - versão dicionario (retorna {"coluna":"valor"})
 cursor = conexao.cursor(pysql.cursors.DictCursor)
 
-# --- buscar todos sos registros ------------
+# --- buscar todos os registros ------------
 cursor.execute("select * FROM clientes")
 todos = cursor.fetchall()
 
-for cliente in todos:
-    print(cliente["nome"],"-", cliente["email"],"-", cliente["telefone"])
+# for cliente in todos:
+#     print(cliente["nome"],"-", cliente["email"],"-", cliente["telefone"])
 
+# buscar um unico registro por ID
 
+# cursor.execute("select * from clientes where id_cliente =1")
+# cliente = cursor.fetchone()
+# print (cliente) # 
+
+# buscar um filtro dinamico (seguro)
+nome_busca = "ursula%"
+cursor.execute("select * from clientes  where nome like %s",(nome_busca),)
+resultado = cursor.fetchall()
+print(resultado)
